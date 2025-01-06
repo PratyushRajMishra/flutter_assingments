@@ -25,10 +25,11 @@ class _UserprofilepageState extends State<Userprofilepage> {
           IconButton(
             onPressed: () async {
               try {
-                // Navigate to the LoginPage
-                Navigator.pushReplacement(
+                // Navigate to the LoginPage and remove all previous routes
+                Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(builder: (context) => LoginPage()),
+                      (route) => false, // Remove all previous routes
                 );
               } catch (e) {
                 // Handle any errors if necessary
@@ -36,7 +37,7 @@ class _UserprofilepageState extends State<Userprofilepage> {
               }
             },
             icon: Icon(Icons.logout, color: Colors.white),
-          ),
+          )
         ],
       ),
       body: Padding(
